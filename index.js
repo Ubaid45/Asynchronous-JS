@@ -1,16 +1,31 @@
 console.log("before");
 
-const user = getUser(1);
-console.log(user);
-
-console.log("after");
 // Patterns for dealing with async code.
+
 // 1. Callbacks
-// 2. Promises
-// 3. Async/await
-function getUser(id) {
+
+getUser(1, user => {
+    console.log('User', user);
+    getRepositories(user.gitHubUsername, repos => {
+        console.log('Repos', repos);
+    });
+});
+
+function getUser(id, callback) {
     setTimeout(() => {
         console.log('Reading a user from a database...');
-        return ({ id: id, gitHubUsername: 'ubaid' });
+        callback({ id: id, gitHubUsername: 'ubaid' });
     }, 2000);
 }
+
+function getRepositories(username, callback) {
+    setTimeout(() => {
+        console.log('Calling GitHub API...');
+        callback(['repo1', 'repo2', 'repo3']);
+    }, 2000);
+}
+
+// 2. Promises
+// 3. Async/await
+
+console.log("after");
