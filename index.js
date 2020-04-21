@@ -36,6 +36,13 @@ function getRepositories(username, callback) {
 
 // 2. Promises
 
+// Consume promises
+getUser(1)
+    .then(user => getRepositories(user.gitHubUsername))
+    .then(repos => getCommits(repos[0]))
+    .then(commits => console.log('Commits', commits))
+    .catch(err => console.log('Error', err.message));
+
 function getUser(id) {
     return new Promise((resolve, reject) => {
         setTimeout(() => {
@@ -58,10 +65,12 @@ function getRepositories(username) {
 function getCommits(repo) {
     return new Promise((resolve, reject) => {
         setTimeout(() => {
-            console.log('Calling GitHub API...');
+            console.log('Getting commits...');
             resolve(['commit']);
         }, 2000);
     });
 }
 
 // 3. Async/await
+
+console.log('After');
