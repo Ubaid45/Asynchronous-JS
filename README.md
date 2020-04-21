@@ -1,7 +1,7 @@
-In this project, I practiced with asynchronous javascript to create the **[node-backend-api](https://github.com/Ubaid45/NodeJS_movie-management)** for end-to-end **[movie-management application](https://desolate-headland-28492.herokuapp.com/movies)**.
+In this project, I practiced with asynchronous javascript to create the **[node-backend-api](https://github.com/Ubaid45/NodeJS_movie-management)** for an end-to-end **[movie-management application](https://desolate-headland-28492.herokuapp.com/movies)**.
 
 The printString function doesn’t return anything and is independent, all we cared about was the order. 
-But what if you wanted to take the output of the first function, do something with it in the second function, and then pass it to the third function?
+But what if we wanted to take the output of the first function, do something with it in the second function, and then pass it to the third function?
 Instead of printing the string each time, let’s make a function that will concatenate the string and pass it on.
 # Callbacks
 Here it is in callback style:
